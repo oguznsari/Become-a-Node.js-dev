@@ -38,6 +38,11 @@ app.post('/messages', async (req, res) => {
     } catch (error) {
         res.sendStatus(500);
         return console.error(error);
+    } finally {
+        console.log(`
+            1. logging purposes
+            2. resource shutdown (i.e database connection can be closed here)
+        `);
     }
 });
 
