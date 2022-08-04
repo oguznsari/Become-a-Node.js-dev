@@ -9,6 +9,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
     integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
     crossorigin="anonymous"></script>
+<script src="/socket.io/socket.io.js"></script>
 
 <div class="container">
     <br>
@@ -26,6 +27,7 @@
     </div>
 </div>
 <script>
+    var socket = io();
     $(() => {
         $("#send").click(() => {
             var message = {
@@ -37,6 +39,8 @@
 
         getMessages();
     })
+
+    socket.on('message', addMessages);
 
     function addMessages(message) {
         $("#messages").append(`<h4> ${message.name} </h4> <p> ${message.message} </p>`)
