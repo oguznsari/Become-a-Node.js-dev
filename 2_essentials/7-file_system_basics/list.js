@@ -7,4 +7,4 @@ fs.readdir('./assets', (err, files) => {
     console.log('files: ', files);
 });
 
-console.log('started reading files.');
+console.log('finished reading files.');
