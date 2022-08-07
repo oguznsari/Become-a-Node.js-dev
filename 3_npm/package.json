@@ -4,12 +4,13 @@
   "description": "test for npm",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./index.js --exec babel-node -e js"
   },
   "author": "Oğuzhan SARI",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
