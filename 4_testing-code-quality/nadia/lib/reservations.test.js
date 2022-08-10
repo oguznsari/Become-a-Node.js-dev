@@ -1,4 +1,3 @@
-const { insert } = require('./knex');
 const Reservation = require('./schema/reservation');
 
 describe(`fetch`, () => {
