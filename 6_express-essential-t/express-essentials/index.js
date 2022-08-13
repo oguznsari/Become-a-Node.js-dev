@@ -17,12 +17,14 @@ app.get('/', (req, res) => {
 });
 
 // GET with next
-app.get('/next', (req, res, next) => {
-  console.log('The response will be sent by the next function.');
-  next();
-}, (req, res) => {
-  res.send('I just said up a route with a second callback.');
-}
+app.get('/next',
+  (req, res, next) => {
+    console.log('The response will be sent by the next function.');
+    next();
+  },
+  (req, res) => {
+    res.send('I just said up a route with a second callback.');
+  }
 );
 
 // GET with routing parameters
