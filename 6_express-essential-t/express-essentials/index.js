@@ -26,6 +26,21 @@ app.get('/redirect', (req, res) => {
   res.redirect('https://www.linkedin.com');
 });
 
+// GET
+app.get('/class', (req, res) => {
+  res.send('Retrieve class info.');
+});
+
+// POST
+app.post('/class', (req, res) => {
+  res.send('Create class info.');
+});
+
+// PUT
+app.put('/class', (req, res) => {
+  res.send('Update class info.');
+});
+
 // GET with next()
 app.get('/next',
   (req, res, next) => {
