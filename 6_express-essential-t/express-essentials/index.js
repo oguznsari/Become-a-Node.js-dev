@@ -38,7 +38,8 @@ app.get('/redirect', (req, res) => {
 // Route chaining
 app.route('/class')
   .get((req, res) => {
-    res.send('Retrieve class info.');
+    // res.send('Retrieve class info.');
+    throw new Error();
   })
   .post((req, res) => {
     res.send('Create class info.');
@@ -80,6 +81,11 @@ app.put('/edit', (req, res) => {
 app.delete('/delete', (req, res) => {
   res.send('This is a DELETE request at /delete');
 });
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something is broken!');
+})
 
 app.listen(PORT, () => {
   console.log(`The server is running on port: ${PORT}!`);
