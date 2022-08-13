@@ -2,7 +2,6 @@ import express from 'express';
 import data from './data/mock.json' assert { type: 'json' };
 
 const app = express();
-
 const PORT = 3000;
 
 // Using the public folder at the route of the project
@@ -11,9 +10,19 @@ app.use(express.static('public'));
 // Using the images folder at the route /imahes
 app.use('/images', express.static('images'));
 
+// Using express.json and express.urlencoded
+// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // GET
 app.get('/', (req, res) => {
   res.json(data);
+});
+
+// POST - express.json & express.urlencoded
+app.post('/item', (req, res) => {
+  console.log("req.body: ", req.body);
+  res.send(req.body);
 });
 
 // GET - download method
