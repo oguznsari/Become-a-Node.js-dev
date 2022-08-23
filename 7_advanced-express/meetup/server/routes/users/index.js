@@ -9,7 +9,14 @@ module.exports = () => {
   router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/users/login?error=true'
-  }))
+  }));
+
+  router.get('/logout', (req, res) => {
+    req.logout(req.user, err => {
+      if(err) return next(err);
+      res.redirect('/');
+    });
+  });
 
   router.get('/registration', (req, res) => res.render('users/registration', { success: req.query.success }));
 
