@@ -24,6 +24,12 @@ class AvatarService {
     return filename;
   }
 
+  async thumbnail(filename) {
+    return sharp(this.filepath(filename))
+    .resize(50, 50)
+    .toBuffer();
+  }
+
   async delete(filename) {
     return fsunlink(this.filepath(filename));
   }
