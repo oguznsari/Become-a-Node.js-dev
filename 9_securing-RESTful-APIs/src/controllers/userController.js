@@ -5,7 +5,7 @@ import { UserSchema } from '../models/userModel';
 
 const User = mongoose.model('User', UserSchema);
 
-export const LoginRequired = (req, res, next) => {
+export const loginRequired = (req, res, next) => {
   if (req.user) {
     next();                                        // Already loggedin user
   } else {
